@@ -1,16 +1,17 @@
 const express = require('express');
 const session = require('express-session');
 const sessionStore = require('connect-session-knex')(session);
+
 const apiRouter = require('./api-router');
-const configureMiddleware = require('../middleware./configure-middleware');
+const configureMiddleware = require('../middleware/configure-middleware');
 
 const server = express();
 
 const sessionOptions = {
-    name: "Mickey",
-    secret: "youreoutofyourelementdonny",
+    name: "Walt",
+    secret: "ubiwerks",
     cookie: {
-        maxAge: 1000 * 60 * 30,
+        maxAge: 1000 * 60 * 60,
         secure: false,
         httpOnly: true
     },
