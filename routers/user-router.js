@@ -2,14 +2,14 @@ const router = require('express').Router();
 
 const Parents = require('../models/parents-model');
 const Volunteers = require('../models/vounteers-model');
-const restricted = require('../auth/restricted-middleware');
+const restricted = require('../middleware/restricted-middleware');
 
 router.get('/', restricted, (req, res) => {
     Parents.find()
         .then(users => {
             res.json(users);
         })
-        .catch(err => res.send({ message: "You shall not pass!", err }));
+        .catch(err => res.send({ message: "Try again later.", err }));
 });
 
 router.get('/', restricted, (req, res) => {
@@ -17,7 +17,7 @@ router.get('/', restricted, (req, res) => {
         .then(users => {
             res.json(users);
         })
-        .catch(err => res.send({ message: "You shall not pass!", err }));
+        .catch(err => res.send({ message: "Try again later.", err }));
 });
 
 module.exports = router;

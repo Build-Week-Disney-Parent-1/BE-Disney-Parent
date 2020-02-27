@@ -3,8 +3,10 @@ const bc = require('bcryptjs');
 
 const Parents = require('../models/parents-model');
 const Volunteers = require('../models/vounteers-model');
+const regMiddleware = require('../middleware/register-error-middleware');
+const loginMiddleware = require('../middleware/login-error-middleware');
 
-router.post('/register/parents', async (req, res) => {
+router.post('/register/parents', regMiddleware, async (req, res) => {
     const data = req.body;
     data.password = bc.hashSync(data.password, 12);
 
@@ -16,7 +18,7 @@ router.post('/register/parents', async (req, res) => {
     }
 });
 
-router.post('/register/volunteers', async (req, res) => {
+router.post('/register/volunteers', regMiddleware, async (req, res) => {
     const data = req.body;
     data.password = bc.hashSync(data.password, 12);
 
@@ -28,15 +30,15 @@ router.post('/register/volunteers', async (req, res) => {
     }
 });
 
-router.post('/login/parents', async (req, res) => {
-    const { username, password } = req.body;
+router.post('/login/parents', loginMiddleware, async (req, res) => {
+    const { email, password } = req.body;
 
     try {
-        const log = await Parents.findBy(username);
+        const log = await Parents.findBy(email);
 
-        if (log && bc.compareSync(password, log.password)) {
+        if (log && bc.compareSync(password, log.name)) {
             req.session.loggedin = true;
-            res.status(200).json({ message: `Welcome ${log.username}!` });
+            res.status(200).json({ message: `Welcome ${log.email}!` });
         } else {
             res.status(401).json({ message: 'Credentials incorrect, please try again.', err });
         }
@@ -45,15 +47,15 @@ router.post('/login/parents', async (req, res) => {
     }
 });
 
-router.post('/login/volunteers', async (req, res) => {
-    const { username, password } = req.body;
+router.post('/login/volunteers', loginMiddleware, async (req, res) => {
+    const { email, password } = req.body;
 
     try {
-        const log = await Volunteers.findBy(username);
+        const log = await Volunteers.findBy(email);
 
         if (log && bc.compareSync(password, log.password)) {
             req.session.loggedin = true;
-            res.status(200).json({ message: `Welcome ${log.username}!` });
+            res.status(200).json({ message: `Welcome ${log.email}!` });
         } else {
             res.status(401).json({ message: 'Credentials incorrect, please try again.', err });
         }
