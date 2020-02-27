@@ -4,7 +4,7 @@ const Parents = require('../models/parents-model');
 const Volunteers = require('../models/vounteers-model');
 const restricted = require('../middleware/restricted-middleware');
 
-router.get('/', restricted, (req, res) => {
+router.get('/parents', restricted, (req, res) => {
     Parents.find()
         .then(users => {
             res.json(users);
@@ -12,7 +12,7 @@ router.get('/', restricted, (req, res) => {
         .catch(err => res.send({ message: "Try again later.", err }));
 });
 
-router.get('/', restricted, (req, res) => {
+router.get('/volunteers', restricted, (req, res) => {
     Volunteers.find()
         .then(users => {
             res.json(users);

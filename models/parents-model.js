@@ -9,7 +9,7 @@ module.exports = {
 
 function find() {
     return db('parents')
-        .select('id', 'username');
+        .select('id', 'name', 'email');
 };
 
 function findBy(filter) {
