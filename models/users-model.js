@@ -18,7 +18,7 @@ function findBy(filter) {
 };
 
 async function add(data) {
-    const [id] = await db('users').insert(data);
+    const [id] = await db('users').insert(data, "id");
 
     return findById(id);
 };

@@ -5,7 +5,7 @@ const Users = require('../models/users-model');
 const regMiddleware = require('../middleware/register-error-middleware');
 const loginMiddleware = require('../middleware/login-error-middleware');
 
-router.post('/register',  async (req, res) => {
+router.post('/register', regMiddleware, async (req, res) => {
     const data = req.body;
     data.password = bc.hashSync(data.password, 12);
 
