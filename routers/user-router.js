@@ -3,7 +3,7 @@ const router = require('express').Router();
 const Users = require('../models/users-model');
 const restricted = require('../middleware/restricted-middleware');
 
-router.get('/users', restricted, (req, res) => {
+router.get('/users', (req, res) => {
     Users.find()
         .then(users => {
             res.json(users);
