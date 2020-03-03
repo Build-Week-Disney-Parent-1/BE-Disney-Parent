@@ -50,7 +50,7 @@ exports.seed = function (knex) {
       home_park: ""
     },
     {
-      uername: 'Child Care',
+      username: 'Child Care',
       email: 'child@email.com',
       password: 'password',
       role: "volunteer",
@@ -62,7 +62,7 @@ exports.seed = function (knex) {
       home_park: ""
     },
     {
-      uername: 'Care Taker',
+      username: 'Care Taker',
       email: 'care@email.com',
       password: 'password',
       role: "volunteer",
@@ -74,7 +74,7 @@ exports.seed = function (knex) {
       home_park: ""
     },
     {
-      uername: 'Baby Sitter',
+      username: 'Baby Sitter',
       email: 'baby@email.com',
       password: 'password',
       role: "volunteer",
@@ -86,7 +86,7 @@ exports.seed = function (knex) {
       home_park: ""
     },
     {
-      uername: 'Donald Duck',
+      username: 'Donald Duck',
       email: 'donald@email.com',
       password: 'password',
       role: "volunteer",

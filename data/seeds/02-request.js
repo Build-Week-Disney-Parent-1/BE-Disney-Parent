@@ -1,11 +1,11 @@
 
 exports.seed = function (knex) {
-  return knex('users').insert([
+  return knex('request').insert([
     {
-      parent_id: 'Walt Disney',
-      vol_id: 'walt@email.com',
-      meeting_location: 'password',
-      ride: "parent",
+      parent_id: '1',
+      vol_id: '',
+      meeting_location: 'Tomorrowland Food Court',
+      ride: "Star Tours",
       time: "",
       num_children: 5,
       message: ""
