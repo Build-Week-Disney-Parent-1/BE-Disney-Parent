@@ -23,6 +23,23 @@ router.get('/:id', restricted, async (req, res) => {
     }
 });
 
+router.get('/user/:id', restricted, async (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+    try {
+        const quests = await Request.findByUser(id);
+        console.log(quests);
+        if (quests.length) {    
+            res.status(200).json({ message: 'List of requests for this user', quests });
+        } else {
+            res.status(404).json({ message: 'Could not find requests for that user.' })
+        }
+        
+    } catch (err) {
+        res.status(500).json({ message: 'Try again later.', err })
+    }
+});
+
 router.post('/', restricted, async (req, res) => {
     const data = req.body;
 
@@ -44,11 +61,11 @@ router.put('/:id', restricted, async (req, res) => {
         if (changed) {
             Request.update(data, id)
                 .then(updatedRequest => {
-                    res.status(200).json({ message: 'Updated the user!', updatedRequest });
+                    res.status(200).json({ message: 'Updated the request!', data });
                 });
         } else {
             console.log(id);
-            res.status(404).json({ message: 'Could not find user.' })
+            res.status(404).json({ message: 'Could not find request.' })
         }
     } catch (err) {
         res.status(500).json({ message: 'Failed to update request, try again later.', err })

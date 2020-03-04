@@ -10,11 +10,13 @@ module.exports = {
 };
 
 function find() {
-    return db('users');
+    return db('users')
+        .select('username', 'email', 'role', 'about', 'address', 'age', 'children', 'family_size', 'home_park');
 };
 
 function findBy(filter) {
     return db('users')
+    .select('username', 'email', 'role', 'about', 'address', 'age', 'children', 'family_size', 'home_park')
         .where(filter);
 };
 
@@ -27,6 +29,7 @@ async function add(data) {
 function findById(id) {
     return db('users')
         .where({ id })
+        .select('username', 'email', 'role', 'about', 'address', 'age', 'children', 'family_size', 'home_park')
         .first();
 };
 
@@ -38,6 +41,7 @@ function update(data, id) {
 
 function remove(id) {
     return db('users')
+        .select('username', 'email', 'role', 'about', 'address', 'age', 'children', 'family_size', 'home_park')
         .where({ id })
         .del();
 };

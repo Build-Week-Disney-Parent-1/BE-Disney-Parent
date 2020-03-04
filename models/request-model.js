@@ -6,7 +6,8 @@ module.exports = {
     findBy,
     findById,
     update,
-    remove
+    remove,
+    findByUser
 };
 
 function find() {
@@ -40,4 +41,9 @@ function remove(id) {
     return db('request')
         .where({ id })
         .del();
+};
+
+function findByUser(id) {
+    return db('request')
+        .where({ parent_id: id });
 };

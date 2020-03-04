@@ -33,7 +33,7 @@ router.put('/:id', restricted, async (req, res) => {
         if (changed) {
             Users.update(data, id)
                 .then(updatedUser => {
-                    res.status(200).json({ message: 'Updated the user!', updatedUser });
+                    res.status(200).json({ message: 'Updated the user!', data });
                 });
         } else {
             console.log(id);
@@ -49,7 +49,7 @@ router.delete('/:id', restricted, async (req, res) => {
 
     try {
         const deleted = await Users.remove(id);
-        res.status(200).json({ message: 'Successfully removed the user.', deleted })
+        res.status(200).json({ message: `Successfully removed the user ${id}.` })
     } catch (err) {
         res.status(500).json({ message: 'Could not remove this user, please try again later.', err })
     }
