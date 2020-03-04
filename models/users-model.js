@@ -10,8 +10,7 @@ module.exports = {
 };
 
 function find() {
-    return db('users')
-        .select('id', 'username', 'email', 'role');
+    return db('users');
 };
 
 function findBy(filter) {
@@ -34,7 +33,7 @@ function findById(id) {
 function update(data, id) {
     return db('users')
         .where({ id })
-        .change(data);
+        .update(data);
 };
 
 function remove(id) {

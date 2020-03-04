@@ -33,7 +33,7 @@ function findById(id) {
 function update(data, id) {
     return db('request')
         .where({ id })
-        .change(data);
+        .update(data);
 };
 
 function remove(id) {

@@ -39,7 +39,6 @@ router.put('/:id', restricted, async (req, res) => {
             console.log(id);
             res.status(404).json({ message: 'Could not find user.' })
         }
-
     } catch (err) {
         res.status(500).json({ message: 'Failed to update user, try again later.', err })
     }
