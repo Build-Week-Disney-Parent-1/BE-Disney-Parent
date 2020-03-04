@@ -67,7 +67,7 @@ See you again soon!
 
 ### USERS these endpoints are protected
 
-## GET /api/auth/users
+## GET /api/users
 
 # Expected
 *You will just need to hit the URL*
@@ -196,7 +196,7 @@ See you again soon!
 ```
 
 
-## GET /api/auth/users/:id
+## GET /api/users/:id
 
 # Expected
 *You will just need to hit the URL that ends with the unique id*
@@ -219,7 +219,7 @@ See you again soon!
 ```
 
 
-## PUT /api/auth/users/:id
+## PUT /api/users/:id
 
 # Expected
 ```
@@ -257,7 +257,7 @@ See you again soon!
 ```
 
 
-## DELETE /api/auth/users/:id
+## DELETE /api/users/:id
 
 # Expected
 *You will just need to hit the URL that ends with the unique id*
@@ -273,7 +273,7 @@ See you again soon!
 ### REQUEST these endpoints are protected
 Both the 'parent_id' and the 'vol_id' are referring to the 'id' of the user.
 
-## GET /api/auth/request
+## GET /api/request
 
 # Expected
 *You will just need to hit the URL*
@@ -315,7 +315,7 @@ Both the 'parent_id' and the 'vol_id' are referring to the 'id' of the user.
 ```
 
 
-## GET /api/auth/request/:id
+## GET /api/request/:id
 
 # Expected
 *You will just need to hit the URL that ends with the unique id*
@@ -334,8 +334,43 @@ Both the 'parent_id' and the 'vol_id' are referring to the 'id' of the user.
 }
 ```
 
+## GET /api/request/user/:id
 
-## POST /api/auth/request
+# Expected
+*You will just need to hit the URL that ends with the unique user id*
+
+# Return
+```
+{
+    "message": "List of requests for this user",
+    "quests": [
+        {
+            "id": 3,
+            "parent_id": 4,
+            "vol_id": 7,
+            "meeting_location": "Adventureland",
+            "ride": "Jungle Cruise",
+            "time": "12:15 PM",
+            "num_children": 3,
+            "message": "Allergic to peanuts"
+        },
+        {
+            "id": 4,
+            "parent_id": 4,
+            "vol_id": null,
+            "meeting_location": "Adventureland",
+            "ride": "Jungle Cruise",
+            "time": null,
+            "num_children": 3,
+            "message": null
+        }
+    ]
+}
+```
+
+
+
+## POST /api/request
 
 # Expected
 ```
@@ -365,7 +400,7 @@ Both the 'parent_id' and the 'vol_id' are referring to the 'id' of the user.
 ```
 
 
-## PUT /api/auth/request/:id
+## PUT /api/request/:id
 
 # Expected
 ```
@@ -397,7 +432,7 @@ Both the 'parent_id' and the 'vol_id' are referring to the 'id' of the user.
 ```
 
 
-## DELETE /api/auth/request/:id
+## DELETE /api/request/:id
 
 # Expected
 *You will just need to hit the URL that ends with the unique id*
