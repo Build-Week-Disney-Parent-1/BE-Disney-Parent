@@ -17,7 +17,7 @@ router.post('/register', regMiddleware, async (req, res) => {
     }
 });
 
-router.post('/login',  async (req, res) => {
+router.post('/login', loginMiddleware, async (req, res) => {
     const { email, password } = req.body;
 
     try {
