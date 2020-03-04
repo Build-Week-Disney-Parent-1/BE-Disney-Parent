@@ -44,11 +44,11 @@ router.put('/:id', restricted, async (req, res) => {
         if (changed) {
             Request.update(data, id)
                 .then(updatedRequest => {
-                    res.status(200).json({ message: 'Updated the user!', updatedRequest });
+                    res.status(200).json({ message: 'Updated the request!', data });
                 });
         } else {
             console.log(id);
-            res.status(404).json({ message: 'Could not find user.' })
+            res.status(404).json({ message: 'Could not find request.' })
         }
     } catch (err) {
         res.status(500).json({ message: 'Failed to update request, try again later.', err })
