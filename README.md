@@ -56,7 +56,7 @@
 
 ## DELETE /api/auth/logout
 
-# Expacted
+# Expected
 *You will just need to hit the URL*
 
 # Return
