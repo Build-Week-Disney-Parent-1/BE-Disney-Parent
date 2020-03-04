@@ -1,22 +1,25 @@
-# Disney-Parent BackEnd
+## Disney-Parent BackEnd
 
-https://disney-parent-api.herokuapp.com/
+# https://disney-parent-api.herokuapp.com/
 
-# EndPoints
+### EndPoints
 
-# AUTH
+### AUTH
 
-POST /api/auth/register
+## POST /api/auth/register
 
-Expected
+# Expected
+```
 {
 	"username": "Goofy",
 	"email": "goofy@email.com",
 	"password": "password",
 	"role": "parent"
 }
+```
 
-Return
+# Return
+```
 {
     "id": 10,
     "username": "Goofy",
@@ -30,40 +33,47 @@ Return
     "family_size": null,
     "home_park": null
 }
+```
 
+## POST /api/auth/login
 
-POST /api/auth/login
-
-Expected
+# Expected
+```
 {
 	"email": "goofy@email.com",
 	"password": "password",
 	"role": "parent"
 }
+```
 
-Return
+# Return
+```
 {
     "message": "Welcome goofy@email.com!"
 }
+```
 
 
-DELETE /api/auth/logout
+## DELETE /api/auth/logout
 
-Expacted
+# Expacted
 *You will just need to hit the URL*
 
-Return
+# Return
+```
 See you again soon!
+```
 
 
-# USERS these endpoints are protected
+### USERS these endpoints are protected
 
-GET /api/auth/users
+## GET /api/auth/users
 
-Expected
+# Expected
 *You will just need to hit the URL*
 
-Return
+# Return
+```
 [
     {
         "id": 1,
@@ -183,14 +193,16 @@ Return
         "home_park": null
     }
 ]
+```
 
 
-GET /api/auth/users/:id
+## GET /api/auth/users/:id
 
-Expected
+# Expected
 *You will just need to hit the URL that ends with the unique id*
 
-Return
+# Return
+```
 {
     "id": 9,
     "username": "Oswald Rabbit",
@@ -204,11 +216,13 @@ Return
     "family_size": 3,
     "home_park": "California Adventure"
 }
+```
 
 
-PUT /api/auth/users/:id
+## PUT /api/auth/users/:id
 
-Expected
+# Expected
+```
 {
         "username": "Oswald Rabbit",
         "email": "oswaldrabbit@email.com",
@@ -221,8 +235,10 @@ Expected
         "family_size": "3",
         "home_park": "California Adventure"
 }
+```
 
-Return
+# Return
+```
 {
     "message": "Updated the user!",
     "data": {
@@ -238,28 +254,32 @@ Return
         "home_park": "California Adventure"
     }
 }
+```
 
 
-DELETE /api/auth/users/:id
+## DELETE /api/auth/users/:id
 
-Expected
+# Expected
 *You will just need to hit the URL that ends with the unique id*
 
-Return
+# Return
+```
 {
     "message": "Successfully removed the user 2."
 }
+```
 
 
-# REQUEST these endpoints are protected
+### REQUEST these endpoints are protected
 Both the 'parent_id' and the 'vol_id' are referring to the 'id' of the user.
 
-GET /api/auth/request
+## GET /api/auth/request
 
-Expected
+# Expected
 *You will just need to hit the URL*
 
-Return
+# Return
+```
 [
     {
         "id": 1,
@@ -292,14 +312,16 @@ Return
         "message": "Naptime"
     }
 ]
+```
 
 
-GET /api/auth/request/:id
+## GET /api/auth/request/:id
 
-Expected
+# Expected
 *You will just need to hit the URL that ends with the unique id*
 
-Return
+# Return
+```
 {
     "id": 2,
     "parent_id": 2,
@@ -310,11 +332,13 @@ Return
     "num_children": 3,
     "message": "Allergic to peanuts"
 }
+```
 
 
-POST /api/auth/request
+## POST /api/auth/request
 
-Expected
+# Expected
+```
 {
     "parent_id": "4",
     "vol_id": null,
@@ -324,8 +348,10 @@ Expected
     "num_children": 3,
     "message": null
 }
+```
 
-Return
+# Return
+```
 {
     "id": 4,
     "parent_id": 4,
@@ -336,11 +362,13 @@ Return
     "num_children": 3,
     "message": null
 }
+```
 
 
-PUT /api/auth/request/:id
+## PUT /api/auth/request/:id
 
-Expected
+# Expected
+```
 {
     "parent_id": 4,
     "vol_id": 7,
@@ -350,8 +378,10 @@ Expected
     "num_children": 3,
     "message": "Allergic to peanuts"
 }
+```
 
-Return
+# Return
+```
 {
     "message": "Updated the request!",
     "data": {
@@ -364,14 +394,17 @@ Return
     "message": "Allergic to peanuts"
 }
 }
+```
 
 
-DELETE /api/auth/request/:id
+## DELETE /api/auth/request/:id
 
-Expected
+# Expected
 *You will just need to hit the URL that ends with the unique id*
 
-Return
+# Return
+```
 {
     "message": "Successfully removed request."
 }
+```
