@@ -6,6 +6,9 @@ const restricted = require('../middleware/restricted-middleware');
 router.get('/', restricted, async (req, res) => {
     try {
         const quests = await Request.find();
+        quests.forEach(element => {
+            element.selected = !!element.selected;
+        });
         res.json(quests);
     } catch (err) {
         res.send({ message: 'Try again later.', err });
@@ -17,6 +20,7 @@ router.get('/:id', restricted, async (req, res) => {
 
     try {
         const quest = await Request.findById(id);
+        quest.selected = !!quest.selected;
         res.json(quest);
     } catch (err) {
         res.send({ message: 'Try again later.', err });
@@ -28,8 +32,11 @@ router.get('/user/:id', restricted, async (req, res) => {
     console.log(id);
     try {
         const quests = await Request.findByUser(id);
-        console.log(quests);
+        quests.forEach(element => {
+            element.selected = !!element.selected;
+        });
         if (quests.length) {    
+            
             res.status(200).json({ message: 'List of requests for this user', quests });
         } else {
             res.status(404).json({ message: 'Could not find requests for that user.' })
