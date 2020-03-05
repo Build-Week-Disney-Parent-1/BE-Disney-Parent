@@ -19,12 +19,9 @@ router.post('/register', regMiddleware, async (req, res) => {
 
 router.post('/login', loginMiddleware, async (req, res) => {
     const { email, password } = req.body;
-console.log('IN THE LOGIN ROUTER')
     try {
         const log = await Users.findBy({email}).first();
-console.log(log)
         if (log && bc.compareSync(password, log.password)) {
-            console.log('IN THE IF')
             req.session.loggedin = true;
             res.status(200).json({ message: `Welcome ${log.email}!` });
         } else {

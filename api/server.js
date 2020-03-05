@@ -11,7 +11,7 @@ const sessionOptions = {
     name: "Walt",
     secret: "ubiwerks",
     cookie: {
-        maxAge: 1000 * 60 * 60,
+        maxAge: 1000 * 60 * 1440,
         secure: false,
         httpOnly: true
     },
@@ -23,7 +23,7 @@ const sessionOptions = {
         tablename: 'sessions',
         sidfieldname: 'sid',
         createtable: true,
-        clearInterval: 1000 * 60 * 60
+        clearInterval: 1000 * 60 * 1440
     })
 };
 
