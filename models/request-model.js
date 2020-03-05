@@ -45,6 +45,5 @@ function remove(id) {
 
 function findByUser(id) {
     return db('request')
-        // .select('parent_id', 'vol_id', 'meeting_location', 'ride', 'time', 'num_children','message', '!!selected')
-        .where({ parent_id: id });
+        .where({ pin: id });
 };

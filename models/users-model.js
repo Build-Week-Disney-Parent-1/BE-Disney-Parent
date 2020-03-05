@@ -10,8 +10,8 @@ module.exports = {
 };
 
 function find() {
-    return db('users')
-        .select('username', 'email', 'role', 'about', 'address', 'age', 'children', 'family_size', 'home_park');
+    return db('users');
+        // .select('username', 'email', 'role', 'about', 'address', 'age', 'children', 'family_size', 'home_park');
 };
 
 function findBy(filter) {
