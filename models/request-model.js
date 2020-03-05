@@ -11,8 +11,7 @@ module.exports = {
 };
 
 function find() {
-    return db('request')
-        // .select('parent_id', 'vol_id', 'meeting_location', 'ride', 'time', 'num_children','message', '!!selected');
+    return db('request');
 };
 
 function findBy(filter) {
@@ -28,14 +27,12 @@ async function add(data) {
 
 function findById(id) {
     return db('request')
-    // .select('parent_id', 'vol_id', 'meeting_location', 'ride', 'time', 'num_children','message', '!!selected')
         .where({ id })
         .first();
 };
 
 function update(data, id) {
     return db('request')
-        // .select('parent_id', 'vol_id', 'meeting_location', 'ride', 'time', 'num_children','message', '!!selected')
         .where({ id })
         .update(data);
 };
