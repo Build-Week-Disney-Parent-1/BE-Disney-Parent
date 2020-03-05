@@ -36,6 +36,8 @@ exports.up = function (knex) {
       tbl.string('time');
       tbl.integer('num_children');
       tbl.string('message');
+      tbl.boolean('selected')
+        .default(0);
     })
 };
 
