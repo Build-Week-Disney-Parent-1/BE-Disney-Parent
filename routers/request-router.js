@@ -64,7 +64,9 @@ router.put('/:id', restricted, async (req, res) => {
 
     try {
         const changed = await Request.findById(id);
-
+        quests.forEach(element => {
+            element.selected = !!element.selected;
+        });
         if (changed) {
             Request.update(data, id)
                 .then(updatedRequest => {
