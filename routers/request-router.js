@@ -7,7 +7,7 @@ router.get('/', restricted, async (req, res) => {
     try {
         const quests = await Request.find();
         quests.forEach(element => {
-            element.selected = !!element.selected;
+            element.accepted = !!element.accepted;
         });
         res.json(quests);
     } catch (err) {
@@ -20,7 +20,7 @@ router.get('/:id', restricted, async (req, res) => {
 
     try {
         const quest = await Request.findById(id);
-        quest.selected = !!quest.selected;
+        quest.accepted = !!quest.accepted;
         res.json(quest);
     } catch (err) {
         res.send({ message: 'Try again later.', err });
@@ -29,11 +29,10 @@ router.get('/:id', restricted, async (req, res) => {
 
 router.get('/user/:id', restricted, async (req, res) => {
     const { id } = req.params;
-    console.log(id);
     try {
         const quests = await Request.findByUser(id);
         quests.forEach(element => {
-            element.selected = !!element.selected;
+            element.accepted = !!element.accepted;
         });
         if (quests.length) {    
             
@@ -64,7 +63,9 @@ router.put('/:id', restricted, async (req, res) => {
 
     try {
         const changed = await Request.findById(id);
-
+        quests.forEach(element => {
+            element.accepted = !!element.accepted;
+        });
         if (changed) {
             Request.update(data, id)
                 .then(updatedRequest => {

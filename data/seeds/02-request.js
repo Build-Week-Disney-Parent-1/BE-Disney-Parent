@@ -9,7 +9,7 @@ exports.seed = function (knex) {
       time: "12:15 PM",
       num_children: 5,
       message: "",
-      selected: 0
+      accepted: 0
     },
     {
       parent_id: '2',
@@ -19,7 +19,7 @@ exports.seed = function (knex) {
       time: "10:00 AM",
       num_children: 1,
       message: "",
-      selected: 1
+      accepted: 1
     },
     {
       parent_id: '4',
@@ -29,7 +29,7 @@ exports.seed = function (knex) {
       time: "5:45 PM",
       num_children: 2,
       message: "",
-      selected: 1
+      accepted: 1
     },
     {
       parent_id: '4',
@@ -39,7 +39,7 @@ exports.seed = function (knex) {
       time: "4:30 PM",
       num_children: 2,
       message: "",
-      selected: 0
+      accepted: 0
     },
   ]);
 };

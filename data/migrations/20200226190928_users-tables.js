@@ -17,6 +17,8 @@ exports.up = function (knex) {
     tbl.string('children');
     tbl.integer('family_size');
     tbl.string('home_park');
+    tbl.integer('pin')
+      .notNullable();
   })
     .createTable('request', tbl => {
       tbl.increments();
@@ -36,7 +38,7 @@ exports.up = function (knex) {
       tbl.string('time');
       tbl.integer('num_children');
       tbl.string('message');
-      tbl.boolean('selected')
+      tbl.boolean('accepted')
         .default(0);
     })
 };
