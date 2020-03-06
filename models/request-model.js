@@ -45,5 +45,5 @@ function remove(id) {
 
 function findByUser(id) {
     return db('request')
-        .where({ pin: id });
+        .where({ parent_id: id });
 };

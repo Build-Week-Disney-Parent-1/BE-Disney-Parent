@@ -11,8 +11,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 12345
+      home_park: ""
     },
     {
       username: 'Ub Iwerks',
@@ -24,8 +23,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 12345
+      home_park: ""
     },
     {
       username: 'Mickey Mouse',
@@ -37,8 +35,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 54321
+      home_park: ""
     },
     {
       username: 'Oswald Rabbit',
@@ -50,8 +47,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 54321
+      home_park: ""
     },
     {
       username: 'Child Care',
@@ -63,8 +59,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 11155
+      home_park: ""
     },
     {
       username: 'Care Taker',
@@ -76,8 +71,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 11155
+      home_park: ""
     },
     {
       username: 'Baby Sitter',
@@ -89,8 +83,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 55555
+      home_park: ""
     },
     {
       username: 'Donald Duck',
@@ -102,8 +95,7 @@ exports.seed = function (knex) {
       age: 0,
       children: "",
       family_size: "",
-      home_park: "",
-      pin: 33224
+      home_park: ""
     }
   ]);
 };

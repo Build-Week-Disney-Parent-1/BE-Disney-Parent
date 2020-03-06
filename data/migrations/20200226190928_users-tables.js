@@ -17,8 +17,6 @@ exports.up = function (knex) {
     tbl.string('children');
     tbl.integer('family_size');
     tbl.string('home_park');
-    tbl.integer('pin')
-      .notNullable();
   })
     .createTable('request', tbl => {
       tbl.increments();
