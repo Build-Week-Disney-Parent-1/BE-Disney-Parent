@@ -24,7 +24,6 @@
     "id": 10,
     "username": "Goofy",
     "email": "goofy@email.com",
-    "password": "$2a$12$TIO8KLnJVOCHBW8fFYxFZumRKjW5n/XhM/.nGUrrboo6GUly.miBu",
     "role": "parent",
     "about": null,
     "address": null,
