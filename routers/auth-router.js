@@ -22,12 +22,9 @@ router.post('/register', regMiddleware, async (req, res) => {
 
 router.post('/login', loginMiddleware, async (req, res) => {
     const { email, password } = req.body;
-    console.log('in the POST LOGIN');
     try {
-        console.log('in the TRY');
         const log = await Users.findBy({email}).first();
         if (log && bc.compareSync(password, log.password)) {
-            console.log('in the IF');
             const token = genToken(log);
             res.status(200).json({ message: `Welcome ${log.username}!`, token: token });
         } else {
@@ -35,20 +32,6 @@ router.post('/login', loginMiddleware, async (req, res) => {
         }
     } catch (err) {
         res.status(500).json({ message: 'Could not log parent in, please try again later.', err });
-    }
-});
-
-router.delete('/logout', (req, res) => {
-    if (req.session) {
-        req.session.destroy((err) => {
-            if (err) {
-                res.status(400).json({ message: 'Not logged out', err });
-            } else {
-                res.send('See you again soon!');
-            }
-        })
-    } else {
-        res.end();
     }
 });
 
