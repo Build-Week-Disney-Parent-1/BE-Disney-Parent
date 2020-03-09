@@ -46,7 +46,7 @@ router.get('/user/:id', restricted, async (req, res) => {
     }
 });
 
-router.post('/', restricted, async (req, res) => {
+router.post('/', async (req, res) => {
     const data = req.body;
 
     try {

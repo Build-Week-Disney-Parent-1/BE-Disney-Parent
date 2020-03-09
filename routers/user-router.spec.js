@@ -52,8 +52,6 @@ describe('DELETE in USER', () => {
             expect(res.status).toBe(200);
             expect(res.body.message).toBe('Successfully removed the user 1.');
     });
-
-    
 });
 
 
