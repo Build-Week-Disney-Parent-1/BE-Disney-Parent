@@ -13,8 +13,7 @@ router.post('/register', regMiddleware, async (req, res) => {
 
     try {
         const reg = await Users.add(data);
-        const token = genToken({ created_user: reg, token: token });
-        res.status(201).json(reg);
+        res.status(201).json(reg, token);
     } catch (err) {
         res.status(500).json({ message: 'Could not register user, please try again later.', err });
     }
