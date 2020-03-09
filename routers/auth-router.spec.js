@@ -25,7 +25,7 @@ describe('POST in AUTH', () => {
                 'password': 'password',
                 'role': 'role'
             })
-            console.log(res);    
+            // console.log(res);    
             expect(res.type).toBe('application/json');
             expect(res.status).toBe(201);
     });
